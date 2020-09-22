@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>File Upload | Node.js</title>
+  <link rel="stylesheet" href="/styles/index.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+</head>
+
+<body>
+
+  <%- include('../partials/header.ejs') %>
+
+  <div class="wrapper">
+    <div class="middle">
+      <h1 class="h-1">IMAGE UPLOAD</h1>
+      <p class="p">
+        Image upload setup with Node.js, Express.js, MongoDB and Multer
+      </p>
+      <form action="/api/upload" method="post" enctype="multipart/form-data">
+        <input class="select-files" id="file-upload" type="file" name="images" />
+        <label class="btn" for="file-upload"><span class="material-icons"> add_photo_alternate </span>
+          <span class="btn-text">Select Images</span></label>
+        <input class="btn" type="submit" name="submit" value="Upload" />
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <%- include('../partials/footer.ejs') %>
+  </footer>
+</body>
+
+</html>

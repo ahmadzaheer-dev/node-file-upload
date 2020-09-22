@@ -1,0 +1,18 @@
+footer {
+  height: 5vh;
+  background-color: #ff5733;
+  position: relative;
+}
+
+.footer-credits {
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  align-items: center;
+}
+
+.footer-credits > a {
+  color: #333333;
+}

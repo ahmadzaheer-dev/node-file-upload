@@ -1,0 +1,55 @@
+header {
+  width: 100%;
+  border-top: 5px solid #ff5733;
+  height: 12vh;
+  display: flex;
+  border-bottom: 1px solid #eaeaea;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 30px;
+  color: #ff5733;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-link {
+  margin-left: 20px;
+}
+
+.nav-link > a {
+  color: #333333;
+  transition: color 0.4s;
+  position: relative;
+  padding: 8px 10px;
+  text-align: center;
+}
+
+.nav-link:hover > a {
+  color: #ff5733;
+}
+
+.nav-link > a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  bottom: 0;
+  transition: width 0.4s;
+  background-color: #ff5733;
+  left: 0;
+}
+
+.nav-link:hover > a::before {
+  width: 100%;
+}
