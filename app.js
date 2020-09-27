@@ -14,11 +14,6 @@ app.set("views", path.join(__dirname, "views"));
 //SETTING VIEW ENGINE TO EJS
 app.set("view engine", "ejs");
 
-//DEFAULT URL RENDERING
-app.get("/", (req, res) => {
-  res.render("pages/index");
-});
-
 //ESTABLISHING CONNECTION FOR MONGODB
 const conn = mongoose.createConnection("mongodb://localhost:27017/file-upload");
 let gfs;
@@ -55,6 +50,23 @@ const fileFilter = (req, file, cb) => {
 //SETTING UP MULTER CONFIGURATION
 const upload = multer({ storage, fileFilter });
 
+//DEFAULT URL RENDERING
+app.get("/", (req, res) => {
+  res.render("pages/index");
+});
+
+//ROUTE FOR VIEWING ALL IMAGES
+app.get("/view", (req, res) => {
+  gfs.files.find().toArray((err, files) => {
+    if (files) {
+      res.status(200).render("pages/view", { files: files });
+    } else {
+      files = null;
+      res.status(200).render("pages/view", { files: files });
+    }
+  });
+});
+
 //API ROUTE FOR UPLOADING SINGLE IMAGE
 app.post("/api/upload", upload.single("images"), (req, res) => {
   if (req.file) {
@@ -66,13 +78,14 @@ app.post("/api/upload", upload.single("images"), (req, res) => {
   }
 });
 
-app.get("/images/:filename", (req, res) => {
+//API ROUTE FOR STREAMING SINGLE IMAGE
+app.get("/view/:filename", (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     if (file) {
-      const readStream = gfs.createReadStream(file.filename);
-      readStream.pipe(res);
+      let readstream = gfs.createReadStream(file);
+      readstream.pipe(res);
     } else {
-      res.status(404).json({ err: "file not found" });
+      res.send({ err: "Image doesn't exist" });
     }
   });
 });
