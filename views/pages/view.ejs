@@ -2,21 +2,33 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/styles/header.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/footer.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/view.css" />
     <title>View files</title>
 </head>
 
 <body>
-    <% if(files){ %>
-    <% files.forEach(function(file) { %>
-    <div>
-        <img src="view/<%= file.filename %>" alt="">
-    </div>
-    <% }) %>
-    <% } else { %>
-    <p>No files to show</p>
-    <% } %>
+    <!--Importing the HEADER partial-->
+    <%- include('../partials/header.ejs') %>
+
+    <section>
+        <div class="wrapper">
+            <% if(files){ %>
+            <% files.forEach(function(file) { %>
+            <div class="image-container">
+                <img class="image" src="view/<%= file.filename %>" alt="">
+            </div>
+            <% }) %>
+            <% } else { %>
+            <p>No files to show</p>
+            <% } %>
+        </div>
+    </section>
+    <!-- Importing the FOOTER partial-->
+    <%- include('../partials/footer.ejs') %>
 </body>
 
 </html>

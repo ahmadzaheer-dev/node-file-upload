@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: "lato", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 40vh;
+}
