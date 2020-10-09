@@ -20,6 +20,9 @@
             <% files.forEach(function(file) { %>
             <div class="image-container">
                 <img class="image" src="view/<%= file.filename %>" alt="">
+                <form method="POST" action="/delete/<%= file._id %>?_method=DELETE" >
+                    <button class="delete-btn">x</button>
+                </form>
             </div>
             <% }) %>
             <% } else { %>
