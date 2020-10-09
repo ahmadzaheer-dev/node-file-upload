@@ -5,10 +5,12 @@ const Grid = require("gridfs-stream");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const path = require("path");
+const methodOverride = require('method-override');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride('_method'));
 app.set("views", path.join(__dirname, "views"));
 
 //SETTING VIEW ENGINE TO EJS
@@ -84,6 +86,7 @@ app.get("/view/:filename", (req, res) => {
     if (file) {
       let readstream = gfs.createReadStream(file);
       readstream.pipe(res);
+
     } else {
       res.send({ err: "Image doesn't exist" });
     }
