@@ -40,7 +40,7 @@
   display: inline-block;
   cursor: pointer;
   padding: 15px 40px;
-  background-color: #ff5733;
+  background-color: #1ebb77;
   text-transform: uppercase;
   color: #fff;
   margin: 0 auto;
@@ -62,5 +62,5 @@
 }
 
 .btn:hover {
-  background-color: #d14829;
+  background-color: #1c8f5d;
 }

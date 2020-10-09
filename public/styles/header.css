@@ -1,6 +1,6 @@
 header {
   width: 100%;
-  border-top: 5px solid #ff5733;
+  border-top: 5px solid #1ebb77;
   height: 12vh;
   display: flex;
   border-bottom: 1px solid #eaeaea;
@@ -16,7 +16,7 @@ nav {
 
 .logo {
   font-size: 30px;
-  color: #ff5733;
+  color: #1ebb77;
 }
 
 .nav {
@@ -36,7 +36,7 @@ nav {
 }
 
 .nav-link:hover > a {
-  color: #ff5733;
+  color: #1ebb77;
 }
 
 .nav-link > a::before {
@@ -46,7 +46,7 @@ nav {
   height: 1px;
   bottom: 0;
   transition: width 0.4s;
-  background-color: #ff5733;
+  background-color: #71eeb8;
   left: 0;
 }
 
