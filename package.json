@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
-    "mongod": "c:/Users/Ahmad/mongodb/bin/mongod.exe --dbpath c:/Users/Ahmad/mongodb-data"
+    "mongod": "@path/mongodb/bin/mongod.exe --dbpath @path/mongodb-data"
   },
   "author": "",
   "license": "ISC",
